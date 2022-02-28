@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MMD</title>
+  </head>
+  <body bgcolor="#FCDDDD" text="#10100E">
+    <header>
+      <h1>MMD動画一覧</h1>
+    </header>
+    <script>
+      //今日の日付データを変数に格納
+      //変数は"today"とする
+      var today=new Date(); 
+
+      //年・月・日を取得
+      var year = today.getFullYear();
+      var month = today.getMonth()+1;
+      var week = today.getDay();
+      var day = today.getDate();
+      //時刻データを取得して変数に格納する
+      //変数は"time"とする
+      var time= new Date();
+      //時・分・秒を取得
+      var hour = time.getHours();
+      var minute = time.getMinutes();
+      var second = time.getSeconds();
+      var ans = year+month+day+hour+minute+second;
+      var ans2 = year+month+day;
+      var str1 = String(ans) + String(minute);
+      var str2 = str1 + String(hour);
+      var str3 = str2 + String(day) + String(month) + String(second);
+      var str4 = String(minute) + String(ans) + str2;
+      
+      var URL1 = `./MMD_L1/index1.html?=sh${ans}${minute}${hour}${second}`;
+      var URL2 = `./MMD_L2/index2.html?=sh${hour}${second}${ans}${minute}`;
+      //document.write(URL2+"</br>");
+    </script>
+
+    <form name = "pass">
+      <div>
+	1.　パスワードを入力して計算をしてください<br>
+	2.　正しいパスワードを入力した状態で更新ボタンを押すとリンクが出ます<br>
+	パスワード：サイト作成者のDiscordのプロフィールにある、#以降の数字4桁<br><br>
+	<input type = "text" id = "textForm1">
+	<input type = "button" value = "計算" onclick = "Math();"><br>
+	<input type = "password" id = "resultForm">
+	<input type = "password"  id = "resultForm2">	
+	<input type = "button" value = "更新" onclick = "matchPass();">
+      </div>
+    </form>
+    <br>
+    <a id="m1" href=""></a>
+    <br><br>
+    <a id="m2" href=""></a>
+    <script type = "text/javascript">
+    <!--
+      
+      function Math() {
+	  // 入力フォームの値を取得
+	  var textForm1 = document.getElementById("textForm1").value;
+	  // 2つの数値を足す
+	  var sum = 317 + parseInt(textForm1, 10);
+	  var a1 = String(sum*2);
+	  var a2 = sum + 2428;
+	  var key = a1 * a2;
+
+	  // 足し算の結果を別の入力フォームに表示
+	  var resultForm = document.getElementById("resultForm");
+	  resultForm.value = sum;
+	  var resultForm2 = document.getElementById("resultForm2");
+	  resultForm2.value = key;
+	  
+      }
+      </script>
+
+        <script type = "text/javascript">
+    <!--
+      
+      function matchPass() {	  
+	  var inpass = parseInt(document.forms[ "pass" ].elements[ "resultForm2" ].value, 10);
+	  var textForm1 = parseInt(document.getElementById("textForm1").value, 10);
+	  
+	  var validpass = textForm1 + inpass;
+	  
+	      URL1 = `./${validpass}/MMD_L1/index1.html?=sh${str4}`;
+	      target1.href = URL1
+	      target1.textContent = "MMD1";
+	      URL2 = `./${validpass}/MMD_L2/index2.html?=sh${str3}`;
+	      target2.href = URL2
+	      target2.textContent = "MMD2";
+	  
+      }
+      </script>
+    <script>
+      const target1 = document.getElementById("m1")
+      const target2 = document.getElementById("m2")
+    </script>
+    <br><br>
+    <br><br>
+    <a href="https://sahina02.github.io/profile/">トップへ</a>
+      <br><br>
+  </body>
+  <hr>
+  <footer>©︎sahina02</footer>
+</html>
